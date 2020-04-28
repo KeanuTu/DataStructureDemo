@@ -1,3 +1,5 @@
+package Arrays;
+
 /**
  * 数组是一段连续的内存，即使在物理内存中不是连续的，在逻辑上是连续的
  */
@@ -45,10 +47,35 @@ public class Array {
         }
     }
 
+    public boolean update(int index, String target){
+        if(index < length && index >= 0){
+            strArray[index] = target;
+            return true;
+        }
+        return false;
+    }
+
     //列出所有元素
     public void display(){
         for (int i = 0; i < length; i++) {
             System.out.print(strArray[i]+"\t");
         }
+    }
+
+    public static void main(String[] args) {
+        Array arr = new Array(5);
+        for (int i = 0; i < 5; i++) {
+            arr.insert(String.valueOf(i));
+        }
+        arr.display();
+
+        System.out.println("\n删除指定位置数据");
+        arr.delete("3");
+        arr.display();
+
+        System.out.println("\n更改指定位置数据");
+        //因为array数组可以通过下标的方式更换
+        arr.update(0,"00");
+        arr.display();
     }
 }
